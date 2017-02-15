@@ -1,0 +1,181 @@
+\documentclass[
+	a4paper,
+	article,
+	pagesize,
+	pdftex,
+	12pt,
+	%twoside, % + BCOR darunter: für doppelseitigen Druck aktivieren, sonst beide deaktivieren
+	%  BCOR=5mm, % Dicke der Bindung berücksichtigen (Copyshop fragen, wie viel das ist)
+	english,
+	fleqn,
+	final,
+	]{scrartcl}
+\usepackage{ucs}
+%\usepackage{algorithmicx}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage[utf8x]{inputenc} % Eingabekodierung: UTF-8
+%\usepackage{fixltx2e} % Schickere Ausgabe
+\usepackage[T1]{fontenc} % ordentliche Trennung
+\usepackage[english]{babel}
+\usepackage{lmodern} % ordentliche Schriften
+\usepackage[unicode=true]{hyperref}
+\usepackage{setspace,graphicx,tikz,tabularx} % für Elemente der Titelseite
+\usepackage[draft=false,babel,tracking=true,kerning=true,spacing=true]{microtype} % optischer Randausgleich etc.
+\usepackage{csquotes} % schick eingerücktes Zitat
+\makeatletter
+%\def\Bstate{\State\hskip-\ALG@thistlm}
+\makeatother
+
+
+
+\begin{document}
+
+% Beispielhafte Nutzung der Vorlage für die Titelseite (bitte anpassen):
+\input{Institutsvorlage}
+\titel{Self-Healing in Swarm Robotic Systems} % Titel der Arbeit
+\typ{seminar work} % Typ der Arbeit:  Diplomarbeit, Masterarbeit, Bachelorarbeit
+ % erreichter Akademischer Grad
+% z.B.: Master of Science (M. Sc.), Master of Education (M. Ed.), Bachelor of Science (B. Sc.), Bachelor of Arts (B. A.), Diplominformatikerin
+\autor{Vincent Becker and Mark Schatz} % Autor der Arbeit, mit Vor- und Nachname
+\makeTitel
+
+% Hier folgt die eigentliche Arbeit (bei doppelseitigem Druck auf einem neuen Blatt):
+\tableofcontents
+\clearpage
+
+\section{Abstract}
+In our seminar work we are dealing with a way to give swarm robotic systems some more robustness. There are approaches to optimize the algorithms for their different tasks. The one we are coping with is a more general one. Self-healing can be adopted for a wider field of missions. Nevertheless we are coping with swarm taxis. Based on the paper "An Immune-Inspired Swarm Aggregation Algorithm for Self-Healing Swarm Robotic Systems" by Timmis, Ismail, Bjerknes and Winfield we are describing solutions to robot failures.
+
+\section{Introduction}
+
+\subsection{Swarm Robotic Systems}
+Swarm behaviour is the decentralised coordination of many self-propelled entities. They got simple rules for their local interactions and communication which lead to an emergent behaviour (@see Wikipedia). 
+When talking about swarm robotic systems we got a number of at least 5 robots with simple algorithms which only got their local knowledge.
+Those systems need to fulfill their task in a robust, flexible and scalable way.
+
+\subsection{Swarm Taxis and Self-Healing}
+One very simple tasks for robot swarms is moving towards a beacon, called swarm taxis. We will focus on swarms build to achieve this task. Timmis and Co worked with a swarm of 10 e-Puck robots.
+
+\subsubsection{A Simple Task - Swarm Taxis}
+E-puck robots are equipped with an omnidirectional light sensor, 3 proximity sensors, a short range, omnidirectional radio device and some LEDs.
+This is one possible set of tools for swarm taxis robots which need to go towards a light emitting beacon while avoiding obstacles on their way.\\
+
+In their setting Timmis and Co identified three failure modes for a certain robot:
+\begin{description}
+	\item[no failure]
+		everything works fine
+	\item[total failure] the robot completely stops and just behaves like an obstacle
+	\item[partial failure] the robot stops moving (e.g. due to low energy) but still sends signals
+\end{description} 
+
+\subsubsection{Achieving Swarm Taxis Mission}
+\color{red}
+reaching target despite different robot failures\\
+is called self-repair in terms of the swarm\\
+there is no repair of certain robots
+
+\subsubsection{Coping Partial Robot Failure}
+reaching target despite partial robot failures\\
+is called self-healing in terms of swarm robotics\\
+meaning the repair of partially failed robots
+
+\section{Swarm Taxis Algorithms}
+
+\subsubsection{$\alpha$-Algorithm}
+$\alpha$-threshold\\
+limit of minimum neighbours\\
+when less, reconnect\\
+180°-turn\\
+when reconnected, random heading
+
+\subsubsection{$\beta$-Algorithm}
+$\beta$-threshold\\
+limit of minimum neighbors still having connection to a lost robot\\
+when less, reconnect\\
+same as in $\alpha$-Algorithm
+
+\subsubsection{$\omega$-Algorithm}
+$\omega$-threshold\\
+limit maximum of ticks since last avoidance behavior\\
+when more, reconnect\\
+turn to estimated swarm center\\
+when reconnected, random heading\\
+\ \\
+to calculate swarm center replaced wireless connection by timer and ring of IR-emitters\\
+\ \\
+swarm even more connected than with $\beta$-Algorithm
+\color{black}
+
+\section{Self-Healing Algorithms}
+We discussed the problem of anchoring and tried to solve this problem with the approach of swarm taxis algorithms. The swarm beacon taxis, tried to tell us the problem of, what can happen if we don't solve the problem of dead robots, who still sending signals.
+
+\subsection{Single-Nearest-Charger Algorithm}
+One approach is the idea of a Single-Nearest Charger.
+The idea behind this approach is that robots near the failed robot, send informations about their level of energy and distance away from the failed robot.\\
+We want to conclude, how robots will act, if one robot had failed. So if one robot has some malfunction and cannot move any further, that would not be a problem for our case, because the robots would handle this failed robot as an object. Our Problem here is, that the robot can still send signals to other robots. These signals are position data and data about the current state. All robots work with the same algorithm, so everyone is trying to stay near to him, anchoring occurs. \\
+
+(insert picture here, to demonstrate, simulation)\\
+\begin{minipage}[c][3cm]{\textwidth}
+	The Hypotheses behind this, is built as followed:
+	\begin{displayquote}
+		\textit{The use of single nearest charger mechanism (M2) for swarm beacon
+		taxis does not improve the ability of the robots in the systems to
+		reach the beacon when compared with M1 when more than two faulty
+		robots are introduced to the systems.}
+	\end{displayquote}
+\end{minipage}\\
+\ \\
+In contrast of the form of 'central sharing', robots must be able to distribute the collective energy resources owned by the group member. This means that we need a simple solution to share the energy between the robots. Here calls the single nearest charger algorithm.\\
+We assume the simplest rules, which are the position of the robot in the environment and the limit of energy transfer. Robots can donor or receive energy from only one robot at the same time. We say that the nearest robot acts as the donor if one failed robot is sending signals.\\
+\ \\
+The issue about this idea, is the fact, that we can not control the amount of energy that is transferred from donor to receiver or vice versa. So the problem will be, that one failed robot get half of the energy of one donor, the donor now needs energy and a donor for himself. That brings another anchoring effect.
+
+\begin{algorithm}
+	\caption{Single-Nearest-Charger Algorithm}
+	\begin{algorithmic}[1]
+		\Procedure{Donor Energy}{}
+		\State{Deployment: robots are deployed in the environment}
+		\Repeat 
+		\State \parbox[t]{0.8\textwidth}{Random movement of the robot in the environment Signal propagation: Faulty robots will emit faulty signal Rescue: One of the healthy robots with the nearest distance (earliest arriving robot) will perform protection and rescue Repair: Sharing of energy between faulty and healthy robots according to algorithm 2} 
+		\Until $forever$
+		\EndProcedure
+	\end{algorithmic}
+\end{algorithm}
+
+Due to problems with the recharge of the failing robots by docking on them (3 robots, 
+for 1 failed robot) we need a solution, to not interfere with the other helpers so a constant energy flow can happen.
+
+\begin{algorithm}
+	\caption{Algorithm for containment and repair for single nearest charger algorithm}
+	\begin{algorithmic}[1]
+		\Procedure{}{}
+		\State \textbf{begin}
+		\State Evaluate $pos_{self(t)}$
+		\State Send $pos_{self(t)}$ \textit {to peers}
+		\State Receive $egy_{peer}(t-x)$ \textit and $pos_{self}(t-x)$ \textit {from peers}
+		\ForAll{$egy_{peer}(t-x)$} 
+		\State Evaluate $egy_{peer}(t-x)$
+		\If{$egy_{peer}(t-x)$ < $egy_{min}$}
+		\State Evaluate $egy_{peer}(t-x)$
+		\State Sort $pos_{peer}(t-x)$ \textit {in ascending order}
+		\State Move to nearest $pos_{peer}(t-x)$
+		\Else
+		\State Do not move to $pos_{peer}(t-x)$
+		\EndIf \textbf{end}
+		\EndFor \textbf{end}
+		\EndProcedure
+	\end{algorithmic}
+\end{algorithm}
+\clearpage
+\subsubsection{Shared-Nearest-Charger Algorithm}
+An approach to avoid the failure, that one robot donor to one robot and both will fail. Is the idea of Shared-Charging. The failed robot will send out information, about his location, in detail the distance between it and the failed robot and the actual energy level. If the level is ok and one robot is closer to the failed robot than the others
+
+
+
+
+
+
+
+\end{document}

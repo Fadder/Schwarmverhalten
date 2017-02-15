@@ -1,0 +1,21 @@
+Notizen zu dem Paper: 
+An Immune-Inspired Swarm Aggregation Algorithm for
+Self-Healing Swarm Robotic Systems
+
+------------------------------------------------------------------------------------------------------
+Notes:
+
+	Aufbau der Arbeit:
+			Abstract
+			1.Introdcution
+			2.Main part
+			3.Conclusion
+			4.What can we achieve with our aproach
+			5.Future Work
+			6.End of work and what to do with it
+
+
+	-Simulation?
+		(einige simulationen angeben, durchführen)
+
+	-
