@@ -53,7 +53,7 @@ In our seminar work we are dealing with a way to give swarm robotic systems some
 \subsection{Swarm Robotic Systems}
 Swarm behaviour is the decentralised coordination of many self-propelled entities. They got simple rules for their local interactions and communication which lead to an emergent behaviour (@see Wikipedia). 
 When talking about swarm robotic systems we got a number of at least 5 robots with simple algorithms which only got their local knowledge.
-Those systems need to fulfill their task in a robust, flexible and scalable way.
+Those systems need to fulfil their task in a robust, flexible and scalable way.
 
 \subsection{Swarm Taxis and Self-Healing}
 One very simple tasks for robot swarms is moving towards a beacon, called swarm taxis. We will focus on swarms build to achieve this task. Timmis and Co worked with a swarm of 10 e-Puck robots.
@@ -71,7 +71,9 @@ In their setting Timmis and Co identified three failure modes for a certain robo
 \end{description} 
 
 \subsubsection{Achieving Swarm Taxis Mission}
+
 \color{red}
+ÄNDERUNG UM COMMIT ZU SEHEN\\
 reaching target despite different robot failures\\
 is called self-repair in terms of the swarm\\
 there is no repair of certain robots
@@ -92,18 +94,18 @@ when reconnected, random heading
 
 \subsubsection{$\beta$-Algorithm}
 $\beta$-threshold\\
-limit of minimum neighbors still having connection to a lost robot\\
+limit of minimum neighbours still having connection to a lost robot\\
 when less, reconnect\\
 same as in $\alpha$-Algorithm
 
 \subsubsection{$\omega$-Algorithm}
 $\omega$-threshold\\
-limit maximum of ticks since last avoidance behavior\\
+limit maximum of ticks since last avoidance behaviour\\
 when more, reconnect\\
-turn to estimated swarm center\\
+turn to estimated swarm centre\\
 when reconnected, random heading\\
 \ \\
-to calculate swarm center replaced wireless connection by timer and ring of IR-emitters\\
+to calculate swarm centre replaced wireless connection by timer and ring of IR-emitters\\
 \ \\
 swarm even more connected than with $\beta$-Algorithm
 \color{black}
