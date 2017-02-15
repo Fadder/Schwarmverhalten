@@ -56,7 +56,7 @@ When talking about swarm robotic systems we got a number of at least 5 robots wi
 Those systems need to fulfil their task in a robust, flexible and scalable way.
 
 \subsection{Swarm Taxis and Self-Healing}
-One very simple tasks for robot swarms is moving towards a beacon, called swarm taxis. We will focus on swarms build to achieve this task. Timmis and Co worked with a swarm of 10 e-Puck robots.
+One very simple task for robot swarms is moving towards a beacon, called swarm taxis. We will focus on swarms build to achieve this task. Timmis and Co worked with a swarm of 10 e-Puck robots.
 
 \subsubsection{A Simple Task - Swarm Taxis}
 E-puck robots are equipped with an omnidirectional light sensor, 3 proximity sensors, a short range, omnidirectional radio device and some LEDs.
@@ -70,18 +70,12 @@ In their setting Timmis and Co identified three failure modes for a certain robo
 	\item[partial failure] the robot stops moving (e.g. due to low energy) but still sends signals
 \end{description} 
 
-\subsubsection{Achieving Swarm Taxis Mission}
-
-\color{red}
-ÄNDERUNG UM COMMIT ZU SEHEN\\
-reaching target despite different robot failures\\
-is called self-repair in terms of the swarm\\
-there is no repair of certain robots
-
-\subsubsection{Coping Partial Robot Failure}
-reaching target despite partial robot failures\\
-is called self-healing in terms of swarm robotics\\
-meaning the repair of partially failed robots
+There could be confusion about the terms self-healing and self-repairing.
+So we refer to self-repair when talking about reaching the target
+in terms of the swarm despite different robot failures. However there is no repair of certain robots. It's just the remaining swarm achieving it's aim.\\
+We refer to self-healing when talking about reaching the target
+in terms of a single robot despite partial failures. 
+Here we focus on sharing energy between robots to get up a robot which was low on energy.
 
 \section{Swarm Taxis Algorithms}
 
