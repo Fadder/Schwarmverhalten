@@ -4,12 +4,10 @@
 \contentsline {subsection}{\numberline {2.1}Swarm Robotic Systems}{3}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Swarm Taxis and Self-Healing}{3}{subsection.2.2}
 \contentsline {subsubsection}{\numberline {2.2.1}A Simple Task - Swarm Taxis}{3}{subsubsection.2.2.1}
-\contentsline {subsubsection}{\numberline {2.2.2}Achieving Swarm Taxis Mission}{3}{subsubsection.2.2.2}
-\contentsline {subsubsection}{\numberline {2.2.3}Coping Partial Robot Failure}{4}{subsubsection.2.2.3}
 \contentsline {section}{\numberline {3}Swarm Taxis Algorithms}{4}{section.3}
 \contentsline {subsubsection}{\numberline {3.0.1}$\alpha $-Algorithm}{4}{subsubsection.3.0.1}
 \contentsline {subsubsection}{\numberline {3.0.2}$\beta $-Algorithm}{4}{subsubsection.3.0.2}
 \contentsline {subsubsection}{\numberline {3.0.3}$\omega $-Algorithm}{4}{subsubsection.3.0.3}
-\contentsline {section}{\numberline {4}Self-Healing Algorithms}{4}{section.4}
+\contentsline {section}{\numberline {4}Self-Healing Algorithms}{5}{section.4}
 \contentsline {subsection}{\numberline {4.1}Single-Nearest-Charger Algorithm}{5}{subsection.4.1}
 \contentsline {subsubsection}{\numberline {4.1.1}Shared-Nearest-Charger Algorithm}{7}{subsubsection.4.1.1}

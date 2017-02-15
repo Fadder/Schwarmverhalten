@@ -51,7 +51,7 @@ In our seminar work we are dealing with a way to give swarm robotic systems some
 \section{Introduction}
 
 \subsection{Swarm Robotic Systems}
-Swarm behaviour is the decentralised coordination of many self-propelled entities. They got simple rules for their local interactions and communication which lead to an emergent behaviour (@see Wikipedia). 
+Swarm behaviour is the decentralised coordination of many self-propelled entities. They got simple rules for their local interactions and communication which lead to an emergent behaviour. 
 When talking about swarm robotic systems we got a number of at least 5 robots with simple algorithms which only got their local knowledge.
 Those systems need to fulfil their task in a robust, flexible and scalable way.
 
@@ -62,21 +62,26 @@ One very simple task for robot swarms is moving towards a beacon, called swarm t
 E-puck robots are equipped with an omnidirectional light sensor, 3 proximity sensors, a short range, omnidirectional radio device and some LEDs.
 This is one possible set of tools for swarm taxis robots which need to go towards a light emitting beacon while avoiding obstacles on their way.\\
 
+There could be confusion about the terms self-healing and self-repairing.\\
+So on one hand we refer to self-repair when talking about reaching the target
+in terms of the swarm despite different robot failures. However there is no repair of certain robots. It's just the remaining swarm achieving it's aim.\\
+On the other hand we refer to self-healing when talking about reaching the target
+in terms of a single robot despite partial failures. 
+Here we focus on sharing energy between robots to get up a robot which was low on energy.\\
+
 In their setting Timmis and Co identified three failure modes for a certain robot:
 \begin{description}
-	\item[no failure]
-		everything works fine
-	\item[total failure] the robot completely stops and just behaves like an obstacle
-	\item[partial failure] the robot stops moving (e.g. due to low energy) but still sends signals
+	\item[total failure] the robot completely stops and just behaves like an obstacle - self-repair
+	\item[failure of infrared sensors] the robot becomes a moving obstacle and get lost for the swarm - self-repair
+	\item[failure of motors only] the robot stops moving (e.g. due to low energy) but still sends signals - ...
 \end{description} 
 
-There could be confusion about the terms self-healing and self-repairing.
-So we refer to self-repair when talking about reaching the target
-in terms of the swarm despite different robot failures. However there is no repair of certain robots. It's just the remaining swarm achieving it's aim.\\
-We refer to self-healing when talking about reaching the target
-in terms of a single robot despite partial failures. 
-Here we focus on sharing energy between robots to get up a robot which was low on energy.
+The last mentioned failure mode is the most fatal one. In this case the failed robot will anchor the whole swarm by its position. With just one failed robot the swarm still might move on with some delay. However the more motors of different robots fail the more likely it is that the swarm can't move on and is finally anchored by those failed robots.\\
 
+As mentioned before motor failure is often induced by low energy. So the idea is to charge robots which are on low energy which could be one application of self-healing.\\
+In the following we are describing the swarm taxis algorithms first, followed by simple self-healing algorithms before we will explain a more complex one in our next chapter.
+
+\color{red}
 \section{Swarm Taxis Algorithms}
 
 \subsubsection{$\alpha$-Algorithm}
