@@ -117,39 +117,53 @@ One approach is the idea of a Single-Nearest Charger.
 The idea behind this approach is that robots near the failed robot, send informations about their level of energy and distance away from the failed robot.\\
 We want to conclude, how robots will act, if one robot had failed. So if one robot has some malfunction and cannot move any further, that would not be a problem for our case, because the robots would handle this failed robot as an object. Our Problem here is, that the robot can still send signals to other robots. These signals are position data and data about the current state. All robots work with the same algorithm, so everyone is trying to stay near to him, anchoring occurs. \\
 
-(insert picture here, to demonstrate, simulation)\\
-\begin{minipage}[c][3cm]{\textwidth}
-	The Hypotheses behind this, is built as followed:
-	\begin{displayquote}
-		\textit{The use of single nearest charger mechanism (M2) for swarm beacon
-		taxis does not improve the ability of the robots in the systems to
-		reach the beacon when compared with M1 when more than two faulty
-		robots are introduced to the systems.}
-	\end{displayquote}
-\end{minipage}\\
-\ \\
-In contrast of the form of 'central sharing', robots must be able to distribute the collective energy resources owned by the group member. This means that we need a simple solution to share the energy between the robots. Here calls the single nearest charger algorithm.\\
-We assume the simplest rules, which are the position of the robot in the environment and the limit of energy transfer. Robots can donor or receive energy from only one robot at the same time. We say that the nearest robot acts as the donor if one failed robot is sending signals.\\
-\ \\
-The issue about this idea, is the fact, that we can not control the amount of energy that is transferred from donor to receiver or vice versa. So the problem will be, that one failed robot get half of the energy of one donor, the donor now needs energy and a donor for himself. That brings another anchoring effect.
+\textbf{Single-Nearest-Charger Algorithm}
+\newline
 
-\begin{algorithm}
-	\caption{Single-Nearest-Charger Algorithm}
-	\begin{algorithmic}[1]
-		\Procedure{Donor Energy}{}
-		\State{Deployment: robots are deployed in the environment}
-		\Repeat 
-		\State \parbox[t]{0.8\textwidth}{Random movement of the robot in the environment Signal propagation: Faulty robots will emit faulty signal Rescue: One of the healthy robots with the nearest distance (earliest arriving robot) will perform protection and rescue Repair: Sharing of energy between faulty and healthy robots according to algorithm 2} 
-		\Until $forever$
-		\EndProcedure
-	\end{algorithmic}
-\end{algorithm}
+We want to conclude, how robots will act, if one robot had failed. So if one robot has some malfunction and cannot move anymore, that would not be a problem for our case, because the robots would handle this failed robot as an object. Our Problem here is, that the robot can still send signals to other robots. This signals are posiiton data and data about the current state. All robots work with the same algrotihmen, so everyone is trying to stay near to him, anchoring occurs. \newline
 
 Due to problems with the recharge of the failing robots by docking on them (3 robots, 
 for 1 failed robot) we need a solution, to not interfere with the other helpers so a constant energy flow can happen.
 
+The Hypotheses behind this, is built as followed: 
+\\
+\\
+\textit{The use of single nearest charger mechanism (M2) for swarm beacon
+	taxis does not improve the ability of the robots in the systems to
+	reach the beacon when compared with M1 when more than two faulty
+	robots are introduced to the systems}
+\newline
+
+In contrast of the form of 'central sharing', robots must be able to distribute the collective energy resources owned by the group member. This means that we need a simple solution to share the energy between the robots. Here calles the single nearest charger algorithm.
+\\
+We assume the simplest rules, which are the position of the robot in the environment and the limit of energy transfer. Robots can donor or recieve energy from only one robot at the same time. We say that the nearest robot acts as the donor if one failed robot is sending signals.
+\\
+\\
+The issue about this idea, is the fact, that we can not control the amount of energy that is transfered from donor to reciever or vers versa. So the problem will be, that one failed robot get half of the energy of one donor, the donor know needs energy and a donor for himself. That brings another anchoring effect.
+\clearpage
+
+
+\subsection{Single-Nearest-Charger Algorithm}
 \begin{algorithm}
-	\caption{Algorithm for containment and repair for single nearest charger algorithm}
+\caption{Single-Nearest-Charger Algorithm}\label{SingleCharger}
+\begin{algorithmic}[1]
+	\Procedure{Donor Energy}{}
+	\State $begin$
+	\State {Deployment: robots are deployed in the environment}
+	\Repeat 
+	\State {Random movement of the robot in the environment Signal propagation: Faulty robots will emit faulty signal Rescue: One of the healthy robots with the nearest distance (earliest arriving robot) will perform protection and rescue Repair: Sharing of energy between faulty and healthy robots according to algorithm 2} 
+	\Until $forever$
+	\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+\\
+due to problems with the recharge of the failing robots by docking on them (3 robs, 
+for 1 failed rob) we need an solution, to not interfere with the other helpers
+so a constant energy flow can happen.
+\\
+\begin{algorithm}
+	\caption{Algorithm for containment and repair for single nearest charger
+		algorithm}\label{SingleCharger}
 	\begin{algorithmic}[1]
 		\Procedure{}{}
 		\State \textbf{begin}
@@ -169,6 +183,7 @@ for 1 failed robot) we need a solution, to not interfere with the other helpers 
 		\EndProcedure
 	\end{algorithmic}
 \end{algorithm}
+\\
 \clearpage
 \subsubsection{Shared-Nearest-Charger Algorithm}
 An approach to avoid the failure, that one robot donor to one robot and both will fail. Is the idea of Shared-Charging. The failed robot will send out information, about his location, in detail the distance between it and the failed robot and the actual energy level. If the level is ok and one robot is closer to the failed robot than the others
