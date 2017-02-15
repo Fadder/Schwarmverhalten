@@ -1,9 +1,0 @@
-\select@language {english}
-\contentsline {section}{\numberline {1}Abstract}{4}{section.1}
-\contentsline {section}{\numberline {2}deinemudda}{5}{section.2}
-\contentsline {subsection}{\numberline {2.1}hart}{5}{subsection.2.1}
-\contentsline {section}{\numberline {3}robotbeacon}{5}{section.3}
-\contentsline {section}{\numberline {4}Self-Healing Algorithms}{6}{section.4}
-\contentsline {subsection}{\numberline {4.1}simple self-healing algorithms}{6}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Single-Nearest-Charger Algorithm}{7}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Chared-Nearest-Charger Algorithm}{8}{subsection.4.3}
